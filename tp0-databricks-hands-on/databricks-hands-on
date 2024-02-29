@@ -1,0 +1,8 @@
+# Databricks notebook source
+# MAGIC %md
+# MAGIC # Databricks platform and notebooks
+
+# COMMAND ----------
+print("hello databricks")
+# COMMAND ----------
+
