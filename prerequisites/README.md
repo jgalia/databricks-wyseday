@@ -19,4 +19,7 @@ Give you email to your admin and you will receive 2 mails
 * Then click on "Add > Repo". Add the GitHub repository:https://github.com/jgalia/databricks-wyseday.git
   ![add-repo.png](images/add-repo.png)
 
-* Check that you can execute the first cell of the notebook
+* Then go to tp0 and check that you can execute the first cell of the notebook
+You can follow the rest directly on databricks ! 
+Go to tp1 
+
