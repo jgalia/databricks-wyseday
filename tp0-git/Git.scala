@@ -1,6 +1,6 @@
 // Databricks notebook source
 // MAGIC %md
-// MAGIC # Push
+// MAGIC # Git
 
 // COMMAND ----------
 
@@ -21,5 +21,16 @@ print("hello")
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC create a new branch with your initials and push the new above (you have to write a commit message)
-// MAGIC ![push](files/images/gitpush.png)
+// MAGIC In the right corner you can pull if you need it.
+// MAGIC * create a new branch with your initials 
+// MAGIC <img src=files/images/branch.png alt="image" width="50%" height="auto">
+// MAGIC
+// MAGIC * push the new code above (you have to write a commit message)
+// MAGIC <img src=files/images/gitpush.png alt="image" width="70%" height="auto">
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC After the push you can make a pull request
+// MAGIC
+// MAGIC <img src=files/images/pr.png alt="image" width="50%" height="auto">
