@@ -185,5 +185,12 @@ val sqlDf = spark.sql("SELECT * FROM ?")
 
 // COMMAND ----------
 
+// MAGIC %md
+// MAGIC lire les données depuis s3://databricks-wyseday-march-2024/NOAA.csv 
+// MAGIC
+// MAGIC documentation : https://docs.databricks.com/en/delta/tutorial.html#read-a-table
+
+// COMMAND ----------
+
 // MAGIC %sql
 // MAGIC SELECT * FROM ? limit 10;
