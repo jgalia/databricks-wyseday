@@ -15,7 +15,7 @@ Give you email to your admin and you will receive 2 mails
 
 ## Pull the repo in databricks
 
-* Click on "Workspace > Repos >
+* Click on "Workspace > Repos 
 * Then click on "Add > Repo". Add the GitHub repository:https://github.com/jgalia/databricks-wyseday.git
   ![add-repo.png](images/add-repo.png)
 
