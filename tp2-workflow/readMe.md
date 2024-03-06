@@ -47,11 +47,16 @@ documentation : https://docs.databricks.com/en/notebooks/schedule-notebook-jobs.
 
 # Workflow with parameters
 * create a new job or update your actual job to use the notebook : workflow-job-with-parameter
-* click on run now with different parameters : 
-  + set key : "initials" (without quotes)  
-  + value : your initials
 
 ![run_param](images/run_param.png)
+
+* click on run now with different parameters : 
+  + set key : "initials"  
+  + value : your initials
+
+![kv](images/kv.png)
+
+
 
 * monitor the job, you can see your parameters
 
