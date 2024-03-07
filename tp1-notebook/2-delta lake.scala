@@ -38,12 +38,12 @@ import org.joda.time.Days
 // COMMAND ----------
 
 // complete the code
-val noaa = spark.read.format("csv").options(Map("header" -> "true", "inferSchema" -> "true")).load("s3://databricks-wyseday-march-2024/NOAA.csv")
+val noaa = 
 
 // COMMAND ----------
 
 // ici vous devez pouvoir afficher les 10 premières lignes
-display(noaa.limit(10))
+display()
 
 // COMMAND ----------
 
