@@ -10,7 +10,7 @@
 // COMMAND ----------
 
 // replace hello by anything
-print("hello")
+print("toto")
 
 // COMMAND ----------
 

@@ -71,7 +71,7 @@ noaa
   .write
   .mode("overwrite")
   .format("delta")
-  //.options(Map("partitionOverwriteMode" -> "dynamic"))
+  .options(Map("partitionOverwriteMode" -> "dynamic"))
   .partitionBy("year")
   .save("s3://databricks-wyseday-march-2024/JG/delta_NOAA")
 
