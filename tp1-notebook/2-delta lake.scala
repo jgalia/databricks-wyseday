@@ -20,20 +20,20 @@ import org.joda.time.Days
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC un titre en markdown permet de créer une partie dans le notebook qui peut se replier (symbole -/+) à gauche de l'encart du titre
+// MAGIC a markdown title allows you to create a part in the notebook that can be folded (-/+ symbol) to the left of the title insert
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC documentation pour le code : https://docs.databricks.com/en/delta/tutorial.html
+// MAGIC help documentation : https://docs.databricks.com/en/delta/tutorial.html
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC lire les données du fichier s3 : s3://databricks-wyseday-march-2024/NOAA.csv
+// MAGIC read data from s3 : s3://databricks-wyseday-march-2024/NOAA.csv
 // MAGIC * format csv
-// MAGIC * 1ière ligne : nom des colonnes
-// MAGIC * inférer schema automatiquement
+// MAGIC * first row : columns names
+// MAGIC * infer schema automatically
 
 // COMMAND ----------
 
@@ -42,7 +42,7 @@ val noaa =
 
 // COMMAND ----------
 
-// ici vous devez pouvoir afficher les 10 premières lignes
+// here you should be able to display the first 10 lines
 display()
 
 // COMMAND ----------
@@ -53,11 +53,11 @@ display()
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC écrire la table en format delta sur le path s3://databricks-wyseday-march-2024/**VOS-INITIALES**/delta_NOAA 
+// MAGIC write the table in delta format to the path s3://databricks-wyseday-march-2024/**VOS-INITIALES**/delta_NOAA
 // MAGIC
-// MAGIC exemple de path: s3://databricks-wyseday-march-2024/JG/delta_NOAA
+// MAGIC example path: s3://databricks-wyseday-march-2024/JG/delta_NOAA
 // MAGIC
-// MAGIC paramètres:
+// MAGIC settings:
 // MAGIC * partition : year
 // MAGIC * format : delta
 // MAGIC * option : "partitionOverwriteMode" -> "dynamic"
@@ -109,12 +109,12 @@ val deltaTable = ?
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ici un exemple de bug sur le vacuum
+// MAGIC here an example of a bug on vacuum
 
 // COMMAND ----------
 
 // MAGIC %sql
-// MAGIC  ? 1 HOURS
+// MAGIC  ? 0 HOURS
 
 // COMMAND ----------
 
@@ -125,7 +125,7 @@ spark.conf.set(?)
 
 // make vacuum on your table s3://databricks-wyseday-march-2024/INITIALES/delta_NOAA
 %sql
-? 1 HOURS
+? 0 HOURS
 
 // COMMAND ----------
 
@@ -151,7 +151,7 @@ noaa. ?
 // COMMAND ----------
 
 // MAGIC %sql
-// MAGIC -- afficher les databases
+// MAGIC -- print databases
 
 // COMMAND ----------
 
@@ -161,32 +161,32 @@ noaa. ?
 // COMMAND ----------
 
 // MAGIC %sql
-// MAGIC -- afficher les tables
+// MAGIC -- print tables
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ### Lire les données depuis le metastore
+// MAGIC ### Read data from the metastore
 
 // COMMAND ----------
 
 // MAGIC %sql
-// MAGIC -- lire la table que vous venez de créer
+// MAGIC -- read the table you just created
 
 // COMMAND ----------
 
-// autre méthode
+// other way
 val sqlDf = spark.sql("SELECT * FROM ?")
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ### Lire les données depuis s3
+// MAGIC ### Read data from s3
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC lire les données depuis s3://databricks-wyseday-march-2024/NOAA.csv 
+// MAGIC Read data from s3
 // MAGIC
 // MAGIC documentation : https://docs.databricks.com/en/delta/tutorial.html#read-a-table
 

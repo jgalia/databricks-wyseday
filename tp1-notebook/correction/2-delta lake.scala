@@ -20,20 +20,20 @@ import org.joda.time.Days
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC un titre en markdown permet de créer une partie dans le notebook qui peut se replier (symbole -/+) à gauche de l'encart du titre
+// MAGIC a markdown title allows you to create a part in the notebook that can be folded (-/+ symbol) to the left of the title insert
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC documentation pour le code : https://docs.databricks.com/en/delta/tutorial.html
+// MAGIC help documentation : https://docs.databricks.com/en/delta/tutorial.html
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC lire les données du fichier s3 : s3://databricks-wyseday-march-2024/NOAA.csv
+// MAGIC read data from s3 : s3://databricks-wyseday-march-2024/NOAA.csv
 // MAGIC * format csv
-// MAGIC * 1ière ligne : nom des colonnes
-// MAGIC * inférer schema automatiquement
+// MAGIC * first row : columns names
+// MAGIC * infer schema automatically
 
 // COMMAND ----------
 
@@ -44,7 +44,7 @@ val noaa = spark.read.format("csv")
 
 // COMMAND ----------
 
-// ici vous devez pouvoir afficher les 10 premières lignes
+// here you should be able to display the first 10 lines
 display(noaa.limit(10))
 
 // COMMAND ----------
@@ -55,11 +55,11 @@ display(noaa.limit(10))
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC écrire la table en format delta sur le path s3://databricks-wyseday-march-2024/**VOS-INITIALES**/delta_NOAA 
+// MAGIC write the table in delta format to the path s3://databricks-wyseday-march-2024/**VOS-INITIALES**/delta_NOAA
 // MAGIC
-// MAGIC exemple de path: s3://databricks-wyseday-march-2024/JG/delta_NOAA
+// MAGIC example path: s3://databricks-wyseday-march-2024/JG/delta_NOAA
 // MAGIC
-// MAGIC paramètres:
+// MAGIC settings:
 // MAGIC * partition : year
 // MAGIC * format : delta
 // MAGIC * option : "partitionOverwriteMode" -> "dynamic"
@@ -116,12 +116,12 @@ deltaTable.optimize().executeCompaction()
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ici un exemple de bug sur le vacuum
+// MAGIC here an example of a bug on vacuum
 
 // COMMAND ----------
 
 // MAGIC %sql
-// MAGIC VACUUM delta.`s3://databricks-wyseday-march-2024/JG/delta_NOAA` RETAIN 1 HOURS
+// MAGIC VACUUM delta.`s3://databricks-wyseday-march-2024/JG/delta_NOAA` RETAIN 0 HOURS
 
 // COMMAND ----------
 
@@ -132,7 +132,7 @@ spark.conf.set("spark.databricks.delta.retentionDurationCheck.enabled", "false")
 
 // make vacuum on your table s3://databricks-wyseday-march-2024/INITIALES/delta_NOAA
 %sql
-VACUUM delta.`s3://databricks-wyseday-march-2024/JG/delta_NOAA` RETAIN 1 HOURS
+VACUUM delta.`s3://databricks-wyseday-march-2024/JG/delta_NOAA` RETAIN 0 HOURS
 
 // COMMAND ----------
 
@@ -152,27 +152,30 @@ noaa.createOrReplaceTempView("JG_nooa")
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ### explorer les schemas
+// MAGIC ### explore schema
 
 // COMMAND ----------
 
 // MAGIC %sql
+// MAGIC -- print databases
 // MAGIC show databases
 
 // COMMAND ----------
 
 // MAGIC %sql
+// MAGIC -- set a database
 // MAGIC USE default
 
 // COMMAND ----------
 
 // MAGIC %sql
+// MAGIC -- print tables
 // MAGIC show tables
 
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ### Lire les données depuis le metastore
+// MAGIC ### Read data from the metastore
 
 // COMMAND ----------
 
@@ -187,7 +190,7 @@ val sqlDf = spark.sql("SELECT * FROM JG_nooa;")
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC ### Lire les données depuis s3
+// MAGIC ### Read data from s3
 
 // COMMAND ----------
 
